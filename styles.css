@@ -2,17 +2,83 @@
   margin: 0;
   font-family: "Inter", sans-serif;
   color: #cffafe;
-  text-shadow: 0px 5px 5px #0f172a;
+  text-shadow: 0px 2px 3px #0f172a;
 }
+
+/* Start */
+.start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #06b6d4;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#starttitle {
+  font-size: 3.3em;
+}
+
+.start-content {
+  display: flex;
+  border: 10px solid #155e75;
+  background-color: #196f87;
+  width: 25em;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px;
+}
+
+.start-content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2em;
+  padding: 20px;
+}
+.start-content input {
+  border: none;
+  background-color: none;
+  border-bottom: 2px solid #0f172a;
+  padding: 10px;
+  border-radius: 20px;
+  text-shadow: none;
+  color: #155e75;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 10px;
+}
+
+.start-content button {
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 1.5em;
+  background-color: #155e75;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px;
+}
+
+.start-content button:hover {
+  cursor: pointer;
+  background-color: #2e7f98;
+}
+
+/* Main Container */
 .container {
-  display: grid;
+  display: none;
   grid-template-rows: 0.5fr 7fr 0.5fr;
   width: 100vw;
   height: 100vh;
 }
 
 .header {
-  background-color: #164e63;
+  background-color: #0e7490;
   z-index: 1;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px;
   display: flex;
@@ -27,12 +93,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #164e63;
+  background-color: #0e7490;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px 10px;
 }
 .footerText a {
   text-decoration: none;
-  color: #94a3b8;
+  color: #42d924;
   font-weight: 600;
 }
 
@@ -42,7 +108,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #0e7490;
+  background-color: #06b6d4;
 }
 
 .maingame {
@@ -77,8 +143,23 @@
 .gameinfo {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+}
+
+.playerName {
+  color: #a3e635;
+}
+.playerNum {
+  color: #bef264;
+}
+
+.playerScore {
+  color: #fca5a5;
+}
+
+#turnText {
+  color: #a3e635;
 }
 
 #resetButton {
@@ -93,12 +174,13 @@
 }
 
 #resetButton:hover {
+  cursor: pointer;
   background-color: #397084;
 }
 
 #turnText {
-    font-size: 1.5em;
-    font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 /* Players */
 
