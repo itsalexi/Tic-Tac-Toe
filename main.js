@@ -2,6 +2,8 @@ const boardDiv = document.querySelector(".game");
 const gameBoard = (function () {
   let board = ["", "", "", "", "", "", "", "", ""];
   let gameActive = false;
+  let roundWon = false;
+
   let turns = 0;
 
   const winConditions = [
@@ -23,7 +25,6 @@ const gameBoard = (function () {
   }
 
   function checkWin() {
-    let roundWon = false;
     for (let i = 0; i < winConditions.length; i++) {
       const currentWinCondition = winConditions[i];
       const a = board[currentWinCondition[0]];
@@ -47,7 +48,7 @@ const gameBoard = (function () {
     }
 
     // if there is still no winner, and there has been 9 turns then its a tie
-    if (!roundWon && turns == 9) {
+    if (!roundWon && gameBoard.turns == 9) {
       console.log("Tie");
       gameActive = false;
     }
@@ -81,9 +82,8 @@ const gameBoard = (function () {
         player = playerController.getCurrentPlayer();
         event.target.textContent = player;
         board[event.target.dataset.index] = player;
-
+        gameBoard.turns++;
         checkWin();
-        turns++;
       }
     }
 
@@ -99,6 +99,7 @@ const gameBoard = (function () {
     startGame,
     gameActive,
     turns,
+    roundWon,
   };
 })();
 
