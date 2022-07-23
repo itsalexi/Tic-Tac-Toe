@@ -1,6 +1,6 @@
 const boardDiv = document.querySelector(".game");
 const gameBoard = (function () {
-  let board = ["", "x", "o", "", "", "", "", "", ""];
+  let board = ["", "", "", "", "", "", "", "", ""];
   function renderBoard() {
     for (let i = 0; i < board.length; i++) {
       const tile = document.createElement("div");
@@ -24,7 +24,7 @@ const gameBoard = (function () {
   function updateTile(event) {
     console.dir(`${event.target.textContent}`);
     if (event.target.textContent == "") {
-      console.log("Good");
+      event.target.textContent = playerController.getCurrentPlayer();
     }
     // event.target.dataset.index
   }
@@ -42,7 +42,9 @@ const playerController = (function () {
   let players = [];
 
   const playerFactory = (name, character) => {
-    return { name, character };
+    let turn = false;
+    character == "X" ? (turn = true) : (turn = false);
+    return { name, character, turn };
   };
 
   function addPlayer(name, character) {
@@ -50,10 +52,25 @@ const playerController = (function () {
     players.push(player);
   }
 
+  function getCurrentPlayer() {
+    // this gets the current player and changes it to the next one
+    if (players[0].turn) {
+      players[0].turn = false;
+      players[1].turn = true;
+
+      return players[0].character;
+    } else {
+      players[0].turn = true;
+      players[1].turn = false;
+      return players[1].character;
+    }
+  }
+
   return {
     players,
     addPlayer,
-  }
+    getCurrentPlayer,
+  };
 })();
 
 gameBoard.renderBoard();
