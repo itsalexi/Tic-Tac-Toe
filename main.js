@@ -1,4 +1,6 @@
 const boardDiv = document.querySelector(".game");
+const startForm = document.getElementById("startForm");
+
 const gameBoard = (function () {
   const resetButton = document.getElementById("resetButton");
   const turnText = document.getElementById("turnText");
@@ -22,11 +24,20 @@ const gameBoard = (function () {
   ];
 
   function startGame() {
+    const player1Input = document.getElementById("player1Input");
+    const player2Input = document.getElementById("player2Input");
+
+    const startDiv = document.querySelector(".start");
+    const container = document.querySelector(".container");
+
+    startDiv.style.display = "none";
+    container.style.display = "grid";
+
     gameActive = true;
     gameBoard.renderBoard();
     addListeners();
-    playerController.addPlayer("Jack", "x");
-    playerController.addPlayer("Jerry", "O");
+    playerController.addPlayer(player1Input.value, "X");
+    playerController.addPlayer(player2Input.value, "O");
     playerController.updatePlayers();
     playerController.players[0].turn = true;
     playerController.players[1].turn = false;
@@ -211,4 +222,8 @@ const playerController = (function () {
   };
 })();
 
-gameBoard.startGame();
+function start(e) {
+  gameBoard.startGame();
+  e.preventDefault();
+}
+startForm.addEventListener("submit", (e) => start(e));

@@ -19,6 +19,7 @@
 
 #starttitle {
   font-size: 3.3em;
+  color: yellow;
 }
 
 .start-content {
@@ -78,7 +79,7 @@
 }
 
 .header {
-  background-color: #0e7490;
+  background-color: #0c4a6e;
   z-index: 1;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px;
   display: flex;
@@ -93,7 +94,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0e7490;
+  background-color: #0c4a6e;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px 10px;
 }
 .footerText a {
@@ -108,7 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #06b6d4;
+  background-color: #0e7490;
 }
 
 .maingame {
