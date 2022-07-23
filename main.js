@@ -20,8 +20,16 @@ const gameBoard = (function () {
   function startGame() {
     gameActive = true;
     gameBoard.renderBoard();
+    addListeners();
     playerController.addPlayer("Jack", "x");
     playerController.addPlayer("Jerry", "O");
+  }
+
+  function addListeners() {
+    const tiles = document.querySelectorAll(".tile");
+    tiles.forEach((element) =>
+      element.addEventListener("click", (event) => gameBoard.updateTile(event))
+    );
   }
 
   function checkWin() {
@@ -48,7 +56,7 @@ const gameBoard = (function () {
     }
 
     // if there is still no winner, and there has been 9 turns then its a tie
-    if (!roundWon && gameBoard.turns == 9) {
+    if (!roundWon && turns == 9) {
       console.log("Tie");
       gameActive = false;
     }
@@ -68,12 +76,9 @@ const gameBoard = (function () {
     board = ["", "", "", "", "", "", "", "", ""];
     gameActive = false;
     roundWon = false;
-    updateBoard();
-  }
-
-  function updateBoard() {
+    turns = 0;
     boardDiv.innerHTML = "";
-    renderBoard();
+    startGame();
   }
 
   function updateTile(event) {
@@ -82,7 +87,8 @@ const gameBoard = (function () {
         player = playerController.getCurrentPlayer();
         event.target.textContent = player;
         board[event.target.dataset.index] = player;
-        gameBoard.turns++;
+        turns++;
+        console.log(turns);
         checkWin();
       }
     }
@@ -94,11 +100,9 @@ const gameBoard = (function () {
     board,
     renderBoard,
     resetBoard,
-    updateBoard,
     updateTile,
     startGame,
     gameActive,
-    turns,
     roundWon,
   };
 })();
@@ -139,8 +143,3 @@ const playerController = (function () {
 })();
 
 gameBoard.startGame();
-
-const tiles = document.querySelectorAll(".tile");
-tiles.forEach((element) =>
-  element.addEventListener("click", (event) => gameBoard.updateTile(event))
-);
