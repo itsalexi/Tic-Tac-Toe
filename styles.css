@@ -2,32 +2,55 @@
   margin: 0;
   font-family: "Inter", sans-serif;
   color: #cffafe;
+  text-shadow: 0px 5px 5px #0f172a;
 }
 .container {
   display: grid;
-  grid-template-rows: 0.3fr 5fr 0.3fr;
+  grid-template-rows: 0.5fr 7fr 0.5fr;
   width: 100vw;
   height: 100vh;
 }
 
 .header {
-  background-color: #155e75;
+  background-color: #164e63;
   z-index: 1;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  text-shadow: 0px 5px 5px #0f172a;
 }
 
-.gamecontainer {
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #164e63;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px 10px;
+}
+.footerText a {
+  text-decoration: none;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Game Container */
+
+.gamecontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: #0e7490;
 }
 
+.maingame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .game {
   background-color: #155e75;
   display: grid;
@@ -43,20 +66,57 @@
   display: flex;
   justify-content: center;
   font-size: 6em;
-  background-color: #0891b2;
-  border: 2px solid #164e63;
+  background-color: #ccfbf1;
+  border: 5px solid #164e63;
+  color: #164e63;
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #155e75;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 3px 10px;
+.tile:hover {
+  background-color: #9ad7ca;
 }
-.footerText a {
-  text-decoration: none;
-  color: #94a3b8;
-  font-weight: 600;
+.gameinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#resetButton {
+  text-shadow: none;
+  border: none;
+  background-color: #164e63;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border: 2px solid #0f172a;
+}
+
+#resetButton:hover {
+  background-color: #397084;
+}
+
+#turnText {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+/* Players */
+
+.player1,
+.player2 {
+  height: 25em;
+  width: 25em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2em;
+}
+.playerNum,
+.playerName {
+  text-align: center;
+}
+
+.playerName {
+  font-size: 4em;
 }
