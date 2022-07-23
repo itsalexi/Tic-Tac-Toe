@@ -6,6 +6,8 @@ A tic tac toe game that you can play in your browser!
 
 ![App Screenshot](https://i.ibb.co/9VDfrB5/image-2022-07-23-185843374.png)
 
+## Live version
+[Check it out, live on Github Pages!](https://itsalexi.github.io/Tic-Tac-Toe)
 
 ## Languages Used
 
